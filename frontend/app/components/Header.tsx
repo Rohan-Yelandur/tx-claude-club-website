@@ -1,32 +1,45 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../logo.svg";
 
-const navLinks = [{ label: "Events", href: "/events" }];
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Team", href: "/team" },
+  { label: "Events", href: "/events" },
+  { label: "Links", href: "/links" },
+];
 
 export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 bg-surface">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-5 md:px-12">
-        <Link href="/" className="group flex items-center gap-3">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-8 sm:py-5 md:px-12">
+        <Link href="/" className="group flex items-center gap-2 sm:gap-3">
           <Image
             src={logo}
             alt="Claude logo"
             width={40}
             height={40}
-            className="h-8 w-8 transition-transform duration-300 ease-out group-hover:rotate-12 md:h-10 md:w-10"
+            className="h-7 w-7 transition-transform duration-300 ease-out group-hover:rotate-12 sm:h-8 sm:w-8 md:h-10 md:w-10"
           />
-          <div className="flex flex-col gap-0.5 leading-tight">
-            <span className="text-lg font-bold tracking-tight text-foreground md:text-xl">
+          <div className="flex flex-col gap-0 leading-tight sm:gap-0.5">
+            <span className="text-sm font-bold tracking-tight text-foreground sm:text-lg md:text-xl">
               University of Texas at Austin
             </span>
-            <span className="text-sm font-semibold tracking-wide text-primary md:text-base">
+            <span className="text-xs font-semibold tracking-wide text-primary sm:text-sm md:text-base">
               Claude Builder Club
             </span>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-foreground/70 md:flex lg:gap-10 lg:text-base">
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-6 text-sm font-medium text-foreground/70 md:flex lg:gap-8 lg:text-base">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -38,7 +51,38 @@ export default function Header() {
             </Link>
           ))}
         </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="flex h-10 w-10 items-center justify-center rounded-md text-foreground/70 transition-colors hover:bg-cream hover:text-foreground md:hidden"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? (
+            <FaTimes className="h-5 w-5" />
+          ) : (
+            <FaBars className="h-5 w-5" />
+          )}
+        </button>
       </div>
+
+      {/* Mobile Navigation Menu */}
+      {mobileMenuOpen && (
+        <div className="border-t border-muted/20 bg-surface px-4 pb-4 md:hidden">
+          <nav className="flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="rounded-md px-4 py-3 text-base font-medium text-foreground/70 transition-colors hover:bg-cream hover:text-primary"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
 
       <div className="h-[3px] w-full bg-primary" />
     </header>

@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Form from "./components/Form";
+import BackedBy from "./components/BackedBy";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <main>
         <Hero />
         <Form />
+        <BackedBy />
       </main>
       <Footer />
     </>

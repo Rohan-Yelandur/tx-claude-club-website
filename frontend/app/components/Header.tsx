@@ -18,20 +18,20 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-surface">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-8 sm:py-5 md:px-12">
-        <Link href="/" className="group flex items-center gap-2 sm:gap-3">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-8 sm:py-2.5 md:px-12">
+        <Link href="/" className="group flex items-center gap-1.5 sm:gap-2">
           <Image
             src="/images/claude_logo.svg"
             alt="Claude logo"
-            width={40}
-            height={40}
-            className="h-7 w-7 transition-transform duration-300 ease-out group-hover:rotate-12 sm:h-8 sm:w-8 md:h-10 md:w-10"
+            width={28}
+            height={28}
+            className="h-5 w-5 transition-transform duration-300 ease-out group-hover:rotate-12 sm:h-6 sm:w-6 md:h-7 md:w-7"
           />
-          <div className="flex flex-col gap-0 leading-tight sm:gap-0.5">
-            <span className="text-sm font-bold tracking-tight text-foreground sm:text-lg md:text-xl">
+          <div className="flex flex-col leading-tight">
+            <span className="text-xs font-bold tracking-tight text-foreground sm:text-sm md:text-base">
               University of Texas at Austin
             </span>
-            <span className="text-xs font-semibold tracking-wide text-primary sm:text-sm md:text-base">
+            <span className="text-[10px] font-semibold tracking-wide text-primary sm:text-xs md:text-sm">
               Claude Builder Club
             </span>
           </div>
@@ -66,24 +66,30 @@ export default function Header() {
       </div>
 
       {/* Mobile Navigation Menu */}
-      {mobileMenuOpen && (
-        <div className="border-t border-muted/20 bg-surface px-4 pb-4 md:hidden">
-          <nav className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="rounded-md px-4 py-3 text-base font-medium text-foreground/70 transition-colors hover:bg-cream hover:text-primary"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+      <div
+        className={`grid transition-all duration-300 ease-in-out md:hidden ${
+          mobileMenuOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="border-t border-muted/20 bg-surface px-4 pb-4">
+            <nav className="flex flex-col gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="rounded-md px-4 py-3 text-base font-medium text-foreground/70 transition-colors hover:bg-cream hover:text-primary"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
-      )}
+      </div>
 
-      <div className="h-[3px] w-full bg-primary" />
+      <div className="h-[1.5px] w-full bg-primary" />
     </header>
   );
 }

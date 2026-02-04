@@ -201,11 +201,11 @@ export default function EventsPage() {
 
       <main className="flex-1">
         {/* Page Hero */}
-        <section className="border-b border-muted/20 bg-surface px-4 py-8 text-center sm:px-8 md:py-16">
-          <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
+        <section className="border-b border-muted/20 bg-surface px-4 py-10 text-center sm:px-8 sm:py-16 md:py-20">
+          <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
             Upcoming Events
           </h1>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-foreground/70 sm:mt-4 sm:text-base md:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-foreground/70 sm:mt-6 sm:text-base md:text-lg">
             Workshops, hackathons, and demos to help you build with Claude.
           </p>
         </section>

@@ -1,0 +1,36 @@
+const images = [
+  { src: "/images/GM1.jpg", alt: "General meeting" },
+  { src: "/images/hackathonwinners.jpg", alt: "Hackathon winners" },
+  { src: "/images/tabling.jpg", alt: "Tabling"},
+];
+
+const scrollImages = [...images, ...images, ...images, ...images];
+
+export default function Gallery() {
+  return (
+    <section className="overflow-hidden bg-cream pb-16 pt-10 sm:pb-20 sm:pt-14 md:pb-24 md:pt-16">
+      <h2 className="mb-6 px-4 text-center text-xl font-bold text-foreground sm:mb-8 sm:text-2xl md:text-3xl">
+        What we've been up to...
+      </h2>
+      <style>{`
+        @keyframes gallery-scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .gallery-track { animation: gallery-scroll 15s linear infinite; }
+        @media (min-width: 640px) { .gallery-track { animation-duration: 25s; } }
+        @media (min-width: 768px) { .gallery-track { animation-duration: 30s; } }
+      `}</style>
+      <div className="gallery-track flex gap-4 sm:gap-6">
+        {scrollImages.map((img, i) => (
+          <img
+            key={i}
+            src={img.src}
+            alt={img.alt}
+            className="h-48 w-auto flex-shrink-0 rounded-lg object-cover sm:h-64 md:h-80"
+          />
+        ))}
+      </div>
+    </section>
+  );
+}

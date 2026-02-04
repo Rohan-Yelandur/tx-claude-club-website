@@ -25,10 +25,10 @@ const TEAM_MEMBERS = [
     id: "2",
     name: "Jessica Zhu",
     role: "Ambassador",
-    bio: "Brief bio about this team member and their involvement with the club.",
-    image: null, // TO ADD PHOTO: Save as /frontend/public/images/team/jessica-zhu.jpg, then change to: "/images/team/jessica-zhu.jpg"
+    bio: "Jessica is a Junior Design and Informatics major passionate about the intersection of design and AI. She's excited to help make Claude accessible to the UT Austin community.",
+    image: "/images/team/jessica.jpg",
     linkedin: "https://www.linkedin.com/in/jessica-zhu-/",
-    email: "email@utexas.edu",
+    email: "jessicazhu@utexas.edu",
   },
   {
     id: "3",
@@ -43,10 +43,10 @@ const TEAM_MEMBERS = [
     id: "4",
     name: "Tisha Chhatbar",
     role: "Ambassador",
-    bio: "Brief bio about this team member and their involvement with the club.",
-    image: null, // TO ADD PHOTO: Save as /frontend/public/images/team/tisha-chhatbar.jpg, then change to: "/images/team/tisha-chhatbar.jpg"
+    bio: "Tisha is a Sophomore Business major eager to explore how AI can transform industries. She's thrilled to bring new ideas and energy to the Claude Builder Club.",
+    image: "/images/team/tisha.jpg",
     linkedin: "https://www.linkedin.com/in/tisha-chhatbar/",
-    email: "email@utexas.edu",
+    email: "tac3865@utexas.edu",
   },
 ];
 
@@ -98,7 +98,7 @@ function TeamCard({ member }: { member: TeamMember }) {
             href={member.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-muted/10 text-foreground/50 transition-colors hover:bg-primary/10 hover:text-primary"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-muted/10 text-foreground/50 transition-colors hover:bg-[#0077B5]/10 hover:text-[#0077B5]"
             aria-label={`${member.name}'s LinkedIn`}
           >
             <FaLinkedin className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -140,26 +140,6 @@ export default function TeamPage() {
             {TEAM_MEMBERS.map((member) => (
               <TeamCard key={member.id} member={member} />
             ))}
-          </div>
-        </section>
-
-        {/* Join the Team CTA */}
-        <section className="border-t border-muted/20 bg-cream/50 px-4 py-10 sm:px-8 sm:py-16">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-xl font-bold text-foreground sm:text-2xl md:text-3xl">
-              Want to Get Involved?
-            </h2>
-            <p className="mt-3 text-sm text-foreground/70 sm:mt-4 sm:text-base">
-              We&apos;re always looking for passionate students to help grow the Claude
-              Builder Club. Reach out if you&apos;re interested in joining the team!
-            </p>
-            <a
-              href="mailto:claudeattexas@gmail.com"
-              className="mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-dark sm:mt-8 sm:px-8 sm:py-3 sm:text-base"
-            >
-              <FaEnvelope className="h-4 w-4" />
-              Contact Us
-            </a>
           </div>
         </section>
       </main>

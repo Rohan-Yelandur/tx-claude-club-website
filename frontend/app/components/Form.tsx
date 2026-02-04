@@ -1,3 +1,10 @@
+const cards = [
+  { icon: "/images/claude-icons/grid.png", title: "FREE Claude", desc: "Free Claude Pro and API Credits" },
+  { icon: "/images/claude-icons/lightning.png", title: "Hackathons", desc: "Compete & win amazing prizes" },
+  { icon: "/images/claude-icons/flowers.png", title: "Community", desc: "Meet students passionate about AI" },
+  { icon: "/images/claude-icons/lightbulb.png", title: "Learn", desc: "Hands-on tutorials for all skill-levels" },
+];
+
 export default function Form() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-10 sm:px-8 sm:py-12 md:py-16">
@@ -28,13 +35,8 @@ export default function Form() {
             Why join?
           </h2>
           <div className="mt-4 grid grid-cols-2 gap-3 sm:mt-6 sm:gap-4 md:flex md:flex-col md:items-start">
-            {[
-              { icon: "/images/claude-icons/grid.png", title: "FREE Claude", desc: "Free Claude Pro and API Credits" },
-              { icon: "/images/claude-icons/lightning.png", title: "Hackathons", desc: "Compete & win amazing prizes" },
-              { icon: "/images/claude-icons/flowers.png", title: "Community", desc: "Meet students passionate about AI" },
-              { icon: "/images/claude-icons/lightbulb.png", title: "Learn", desc: "Hands-on tutorials for all skill-levels" },
-            ].map((item, i) => (
-              <div key={item.title} className={`flex items-start gap-2.5 rounded-lg border border-muted/20 bg-cream/30 p-3 sm:gap-3 sm:p-4 md:w-3/4 ${i % 2 === 1 ? "md:self-end" : ""}`}>
+            {cards.map((item, i) => (
+              <div key={item.title} className={`flex items-start gap-2.5 rounded-lg border border-muted/20 bg-cream/30 p-3 sm:gap-3 sm:p-4 md:w-[65%] ${i % 2 === 1 ? "md:self-end" : ""}`}>
                 <img src={item.icon} alt="" className="h-12 w-12 flex-shrink-0 sm:h-12 sm:w-12" />
                 <div>
                   <p className="text-sm font-semibold text-foreground sm:text-base">{item.title}</p>

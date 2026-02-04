@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Source_Serif_4 } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const sourceSerif = Source_Serif_4({
@@ -23,7 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sourceSerif.variable} antialiased`}>{children}</body>
+      <body className={`${sourceSerif.variable} antialiased`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

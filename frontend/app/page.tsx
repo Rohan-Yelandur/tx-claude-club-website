@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Form from "./components/Form";
-import BackedBy from "./components/BackedBy";
+import Gallery from "./components/Gallery";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -11,7 +11,14 @@ export default function Home() {
       <main>
         <Hero />
         <Form />
-        <BackedBy />
+        <Gallery />
+        <section className="bg-primary px-[8%] py-16 sm:py-20 md:py-28">
+          <p className="text-center text-5xl font-light leading-tight text-cream sm:text-6xl md:text-left md:text-7xl lg:text-8xl">
+            Keep
+            <br />
+            thinking.
+          </p>
+        </section>
       </main>
       <Footer />
     </>

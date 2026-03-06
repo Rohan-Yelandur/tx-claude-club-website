@@ -3,7 +3,7 @@
 ## Instructions for Adding Your Photo
 
 1. **Save your photo with your name** (lowercase, no spaces):
-   - Aaron: `aaron-sulbaran.jpg`
+   - Aaron: `aaron.jpg`
    - Jessica: `jessica-zhu.jpg`
    - Rohan: `rohan-yelandur.jpg`
    - Tisha: `tisha-chhatbar.jpg`
@@ -30,7 +30,7 @@
   name: "Aaron Sulbaran",
   role: "Ambassador",
   bio: "Your bio here...",
-  image: "/images/team/aaron-sulbaran.jpg",  // <-- Update this line
+  image: "/images/team/aaron.jpg",  // <-- Update this line
   linkedin: "https://linkedin.com/in/your-profile",
   email: "your-email@utexas.edu",
 }

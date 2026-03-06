@@ -7,7 +7,7 @@ import { FaLinkedin, FaEnvelope, FaUserCircle } from "react-icons/fa";
 // ============================================================
 // TO ADD YOUR PHOTO:
 // 1. Save your photo as: frontend/public/images/team/firstname-lastname.jpg
-//    (Example: aaron-sulbaran.jpg)
+//    (Example: aaron.jpg)
 // 2. Change image: null to image: "/images/team/firstname-lastname.jpg"
 // 3. See frontend/public/images/team/README.md for detailed instructions
 // ============================================================
@@ -17,8 +17,8 @@ const TEAM_MEMBERS = [
     name: "Aaron Sulbaran",
     role: "Ambassador",
     bio: "Aaron is a 3rd Year Electrical and Computer Engineering major with a passion for building cool projects. He is excited to be a part of the Claude Builder Club and help bring AI to the UT Austin community.",
-    image: "/images/team/aaron-sulbaran.jpeg", // TO ADD PHOTO: Save as /frontend/public/images/team/aaron-sulbaran.jpg, then change to: "/images/team/aaron-sulbaran.jpg"
-    linkedin: "https://www.linkedin.com/in/aaron-sulbaran/",
+    image: "/images/team/aaron.jpeg", // TO ADD PHOTO: Save as /frontend/public/images/team/aaron.jpg, then change to: "/images/team/aaron.jpg"
+    linkedin: "https://www.linkedin.com/in/aaron/",
     email: "aaronsulbaran@utexas.edu",
   },
   {
@@ -54,11 +54,35 @@ interface TeamMember {
   id: string;
   name: string;
   role: string;
-  bio: string;
+  bio?: string;
   image: string | null;
   linkedin?: string;
   email?: string;
 }
+
+const PREVIOUS_AMBASSADORS: TeamMember[] = [
+  {
+    id: "p1",
+    name: "Vaishnuv Thiagarajan",
+    role: "Previous Ambassador",
+    image: "/images/team/vaishnuv.jpg",
+    linkedin: "https://www.linkedin.com/in/vaishnuv-thiagarajan/",
+  },
+  {
+    id: "p2",
+    name: "Cesar Monagas Romero",
+    role: "Previous Ambassador",
+    image: "/images/team/cesar.jpg",
+    linkedin: "https://www.linkedin.com/in/cesarmonagasromero/",
+  },
+  {
+    id: "p3",
+    name: "Miranda Ye",
+    role: "Previous Ambassador",
+    image: "/images/team/miranda.jpg",
+    linkedin: "https://www.linkedin.com/in/miranda-ye/",
+  },
+];
 
 function TeamCard({ member }: { member: TeamMember }) {
   return (
@@ -86,9 +110,11 @@ function TeamCard({ member }: { member: TeamMember }) {
         <p className="mt-1 text-xs font-medium text-primary sm:text-sm">
           {member.role}
         </p>
-        <p className="mt-2 text-xs text-foreground/60 sm:mt-3 sm:text-sm">
-          {member.bio}
-        </p>
+        {member.bio && (
+          <p className="mt-2 text-xs text-foreground/60 sm:mt-3 sm:text-sm">
+            {member.bio}
+          </p>
+        )}
       </div>
 
       {/* Social Links */}
@@ -147,6 +173,18 @@ export default function TeamPage() {
           <p className="mx-auto max-w-2xl text-center text-sm leading-relaxed text-foreground/70 sm:text-base md:max-w-4xl md:text-lg">
             This club is by students, for students. If you have any questions, please don&apos;t hesitate to reach out.
           </p>
+        </section>
+
+        {/* Previous Ambassadors Section */}
+        <section className="mx-auto max-w-5xl px-4 pb-10 sm:px-8 sm:pb-16">
+          <h2 className="mb-8 text-center text-xl font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl">
+            Previous Ambassadors
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {PREVIOUS_AMBASSADORS.map((member) => (
+              <TeamCard key={member.id} member={member} />
+            ))}
+          </div>
         </section>
       </main>
 

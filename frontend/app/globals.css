@@ -21,6 +21,15 @@
   --color-surface: var(--color-surface);
   --color-cream: var(--color-cream);
   --font-sans: var(--font-serif);
+  --font-display: var(--font-display);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
